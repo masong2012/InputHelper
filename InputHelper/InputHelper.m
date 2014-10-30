@@ -82,7 +82,7 @@ static id getAssociatedObjectForKey(UIView *view ,NSString *key) {
     
     _keyboardSize = CGSizeMake(320, 256);
     
-
+    
     //tool bar
     self.toolBar = [self createInputHelperToolBar];
     
@@ -97,18 +97,19 @@ static id getAssociatedObjectForKey(UIView *view ,NSString *key) {
     [_cleanMaskView addGestureRecognizer:tap];
     [_cleanMaskView addSubview:_toolBarForCleanMaskView];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
+    
+    NSNotificationCenter *notifCenter = [NSNotificationCenter defaultCenter];
+    
+    [notifCenter addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
+    [notifCenter addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
     
     
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(updateFirstResponder:)
-                                                 name:UITextViewTextDidBeginEditingNotification
-                                               object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(updateFirstResponder:)
-                                                 name:UITextFieldTextDidBeginEditingNotification
-                                               object:nil];
+    [notifCenter addObserver:self selector:@selector(updateFirstResponder:) name:UITextFieldTextDidBeginEditingNotification object:nil];
+    [notifCenter addObserver:self selector:@selector(updateFirstResponder:) name:UITextFieldTextDidEndEditingNotification object:nil];
+    [notifCenter addObserver:self selector:@selector(updateFirstResponder:) name:UITextViewTextDidBeginEditingNotification object:nil];
+    [notifCenter addObserver:self selector:@selector(updateFirstResponder:) name:UITextViewTextDidEndEditingNotification object:nil];
+    
+    
     
 }
 
@@ -209,8 +210,7 @@ static id getAssociatedObjectForKey(UIView *view ,NSString *key) {
 
 - (void)updateFirstResponder:(NSNotification *)aNotification {
     
-    id firstResponder = aNotification.object;
-    [self updateButtonEnabledStateForInputField:firstResponder];
+    [self updateButtonEnabledStateForInputField:[self getFirstResponder]];
 }
 #pragma mark -
 
@@ -358,7 +358,6 @@ static id getAssociatedObjectForKey(UIView *view ,NSString *key) {
         [_currentRootView addGestureRecognizer:tap];
     }
    
-    [self updateButtonEnabledStateForInputField:[self getFirstResponder]];
 }
 
 - (void) keyboardWillHide:(NSNotification *) notif

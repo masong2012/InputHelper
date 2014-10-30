@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-
+#import "InputHelper.h"
 @interface ViewController ()
 
 @end
@@ -16,12 +16,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    
+    [inputHelper setupInputHelperForView:self.view withDismissType:InputHelperDismissTypeTapGusture];
+    
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
+
 
 @end

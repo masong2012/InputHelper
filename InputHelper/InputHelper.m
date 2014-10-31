@@ -358,6 +358,7 @@ static id getAssociatedObjectForKey(UIView *view ,NSString *key) {
         [_currentRootView addGestureRecognizer:tap];
     }
    
+    [self updateButtonEnabledStateForInputField:[self getFirstResponder]];
 }
 
 - (void) keyboardWillHide:(NSNotification *) notif

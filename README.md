@@ -3,6 +3,7 @@ InputHelper
 #HOT TO USE ? 
 
 ***
+
 *[inputHelper setupInputHelperForView:view withDismissType:InputHelperDismissTypeNone];*
 >KeyBoard will hide when you click the doen button
 #OR

@@ -1,18 +1,20 @@
 InputHelper
 ===========
+#HOT TO USE ? LIKE THIS:
 
-HOT TO USE ?
-LIKE THIS:
+***
+*[inputHelper setupInputHelperForView:view withDismissType:InputHelperDismissTypeNone];
+KeyBoard will hide when you click the doen button*
 
-    [inputHelper setupInputHelperForView:view withDismissType:InputHelperDismissTypeNone];
-    KeyBoard will hide when you click the doen button
-    
-    [inputHelper setupInputHelperForView:view withDismissType:InputHelperDismissTypeCleanMaskView];
-    KeyBoard will hide when you Touch outside of the KeyBoard
-    
-    [inputHelper setupInputHelperForView:view withDismissType:InputHelperDismissTypeTapGusture];
-    KeyBoard will hide when you Touch the view
-    
+#OR
+*[inputHelper setupInputHelperForView:view withDismissType:InputHelperDismissTypeCleanMaskView];
+KeyBoard will hide when you Touch outside of the KeyBoard*
+#OR
+*[inputHelper setupInputHelperForView:view withDismissType:InputHelperDismissTypeTapGusture];*
+
+***
+>KeyBoard will hide when you Touch the view
 AND YOU CAN USER THOSE METHODS FOR A CONTROLLER,JUST USE controller.view .
-    
-JUST NEED ONE LINE CODES,IT CAN AUTO ADJUST THE FRAME OF THE UITextField/UITextView/UISearchBar.
+***
+###JUST NEED ONE LINE CODES,IT CAN AUTO ADJUST THE FRAME OF THE 
+#UITextField/UITextView/UISearchBar

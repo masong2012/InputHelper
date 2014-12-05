@@ -11,6 +11,8 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+typedef void(^InputHelperDoneBlock)(id);
+
 typedef NS_ENUM(NSInteger, InputHelperDismissType) {
     
     InputHelperDismissTypeNone = 0,
@@ -23,6 +25,7 @@ typedef NS_ENUM(NSInteger, InputHelperDismissType) {
 + (InputHelper *)sharedInputHelper;
 - (void)dismissInputHelper;
 - (void)setupInputHelperForView:(UIView *)view withDismissType:(InputHelperDismissType)dismissType;
+- (void)setupInputHelperForView:(UIView *)view withDismissType:(InputHelperDismissType)dismissType doneBlock:(InputHelperDoneBlock)doneBlock;
 
 
 @end

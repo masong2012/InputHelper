@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>F3680042-F6A6-4BB7-9313-7FD0D2F00E57</string>
+	<key>IDESourceControlProjectName</key>
+	<string>InputHelper</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>32A1A2687592DEC93A553FE59F2C9BD657FF0D2C</key>
+		<string>https://github.com/masong2012/InputHelper.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>InputHelper.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>32A1A2687592DEC93A553FE59F2C9BD657FF0D2C</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/masong2012/InputHelper.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>32A1A2687592DEC93A553FE59F2C9BD657FF0D2C</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>32A1A2687592DEC93A553FE59F2C9BD657FF0D2C</string>
+			<key>IDESourceControlWCCName</key>
+			<string>InputHelper</string>
+		</dict>
+	</array>
+</dict>
+</plist>

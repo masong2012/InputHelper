@@ -18,6 +18,8 @@ static NSString *kInputHelperRootViewOriginalOriginY = @"kInputHelperRootViewOri
 static NSString *kInputHelperRootViewAllInputFieldOriginYDictionary = @"kInputHelperRootViewAllInputFieldOriginYDictionary";
 static NSString *kInputHelperRootViewSortedInputFieldArray = @"kInputHelperRootViewSortedInputFieldArray";
 
+static NSString *kInputHelperDoneBlock = @"kInputHelperDoneBlock";
+
 static void setAssociatedObjectForKey(UIView *view ,NSString *key,id value){
     objc_setAssociatedObject(view, (__bridge  const void *)(key), value, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
@@ -131,7 +133,7 @@ static id getAssociatedObjectForKey(UIView *view ,NSString *key) {
 }
 
 #pragma mark - APIs
-- (void)setupInputHelperForView:(UIView *)view withDismissType:(InputHelperDismissType)dismissType{
+- (void)setupInputHelperForView:(UIView *)view withDismissType:(InputHelperDismissType)dismissType doneBlock:(InputHelperDoneBlock)doneBlock{
     
     self.currentRootView = view;
     
@@ -143,6 +145,7 @@ static id getAssociatedObjectForKey(UIView *view ,NSString *key) {
     NSMutableArray *array = [NSMutableArray new];
     setAssociatedObjectForKey(view, kInputHelperRootViewSortedInputFieldArray, array);
     
+    objc_setAssociatedObject(view, (__bridge  const void *)(kInputHelperDoneBlock), doneBlock, OBJC_ASSOCIATION_COPY_NONATOMIC);
     
     [self checkInputFieldInView:view withViewOriginY:view.frame.origin.y];
     
@@ -199,9 +202,12 @@ static id getAssociatedObjectForKey(UIView *view ,NSString *key) {
             ((UISearchBar *)inputField).inputAccessoryView = inputAccessoryView;
         }
         
-
+        
     }
     
+}
+- (void)setupInputHelperForView:(UIView *)view withDismissType:(InputHelperDismissType)dismissType{
+    [self setupInputHelperForView:view withDismissType:dismissType doneBlock:nil];
 }
 
 - (void)dismissInputHelper{
@@ -289,6 +295,13 @@ static id getAssociatedObjectForKey(UIView *view ,NSString *key) {
     [UIView animateWithDuration:0.3f animations:^{
         _currentRootView.frame = frame;
     }];
+    
+    InputHelperDoneBlock doneBlock = getAssociatedObjectForKey(self.currentRootView, kInputHelperDoneBlock);
+    if (doneBlock) {
+        //callback what??
+        doneBlock(nil);
+    }
+
 }
 
 - (void)updateButtonEnabledStateForInputField:(UIView *)inputField

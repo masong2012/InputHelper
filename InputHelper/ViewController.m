@@ -17,7 +17,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [inputHelper setupInputHelperForView:self.view withDismissType:InputHelperDismissTypeTapGusture];
+    [inputHelper setupInputHelperForView:self.view withDismissType:InputHelperDismissTypeTapGusture doneBlock:^(id res){
+    
+        NSLog(@"Hello! inputHelper");
+    }];
     
 }
 

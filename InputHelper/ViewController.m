@@ -16,11 +16,26 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    if ([self respondsToSelector:@selector(setEdgesForExtendedLayout:)]){
+        self.edgesForExtendedLayout = UIRectEdgeNone;
+    }
     
+    //keyboard
     [inputHelper setupInputHelperForView:self.view withDismissType:InputHelperDismissTypeTapGusture doneBlock:^(id res){
-    
-        NSLog(@"Hello! inputHelper");
+        NSLog(@"done block,you can do something...");
     }];
+   
+   
+    //validation
+    [inputHelper setupValidationType:ValidationTypeNoWhiteSpace forInputField:_nameTextField];
+    
+    [inputHelper setupValidationType:ValidationTypeNumberInt forInputField:_ageTextField];
+    
+    [inputHelper setupValidationType:ValidationTypePhone forInputField:_phoneTextField];
+    
+    [inputHelper setupValidationType:ValidationTypeAlphabetAndNumber forInputField:_emailTextField];
+    
+    [inputHelper limitTextLength:10 forInputField:_textView];
     
 }
 

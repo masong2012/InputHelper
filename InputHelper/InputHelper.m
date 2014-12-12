@@ -20,6 +20,10 @@ static NSString *kInputHelperRootViewSortedInputFieldArray = @"kInputHelperRootV
 
 static NSString *kInputHelperDoneBlock = @"kInputHelperDoneBlock";
 
+static NSString *kInputHelperValidationType = @"kInputHelperValidationType";
+static NSString *kInputHelperInputFiedlTextLength = @"kInputHelperInputFiedlTextLength";
+static NSString *kInputHelperTextLengthLimit = @"kInputHelperTextLengthLimit";
+
 static void setAssociatedObjectForKey(UIView *view ,NSString *key,id value){
     objc_setAssociatedObject(view, (__bridge  const void *)(key), value, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
@@ -29,6 +33,9 @@ static id getAssociatedObjectForKey(UIView *view ,NSString *key) {
 }
 
 
+#define INT_NUMBER_SET  @"^\\d*$"
+#define PHONE_SET   @"^1{1,}\\d*$"
+#define ALPHABET_NUMBER_SET @"^[0-9A-Za-z@_.\\-]+$"
 
 @interface InputHelperTapGusture: UITapGestureRecognizer
 @property (assign, nonatomic) NSInteger tag;
@@ -112,6 +119,8 @@ static id getAssociatedObjectForKey(UIView *view ,NSString *key) {
     [notifCenter addObserver:self selector:@selector(updateFirstResponder:) name:UITextViewTextDidEndEditingNotification object:nil];
     
     
+    [notifCenter addObserver:self selector:@selector(updateInputFieldText:) name:UITextFieldTextDidChangeNotification object:nil];
+    [notifCenter addObserver:self selector:@selector(updateInputFieldText:) name:UITextViewTextDidChangeNotification object:nil];
     
 }
 
@@ -206,6 +215,7 @@ static id getAssociatedObjectForKey(UIView *view ,NSString *key) {
     }
     
 }
+
 - (void)setupInputHelperForView:(UIView *)view withDismissType:(InputHelperDismissType)dismissType{
     [self setupInputHelperForView:view withDismissType:dismissType doneBlock:nil];
 }
@@ -214,11 +224,42 @@ static id getAssociatedObjectForKey(UIView *view ,NSString *key) {
     [self didClickButtonDone];
 }
 
+
+- (void)setupValidationType:(ValidationType)type forInputField:(UIView *)inputField {
+
+    setAssociatedObjectForKey(inputField, kInputHelperValidationType, @(type));
+    
+    switch (type) {
+        case ValidationTypeNumberInt:
+        {
+            [self setKeyBoardType:UIKeyboardTypeNumberPad forInputField:inputField];
+        }
+            break;
+        case ValidationTypePhone:
+        {
+            [self limitTextLength:11 forInputField:inputField];
+            [self setKeyBoardType:UIKeyboardTypePhonePad forInputField:inputField];
+        }
+            break;
+        default:
+        {
+            [self setKeyBoardType:UIKeyboardTypeDefault forInputField:inputField];
+        }
+            break;
+    }
+    
+}
+
+
+- (void)limitTextLength:(NSInteger)length forInputField:(UIView *)inputField{
+    setAssociatedObjectForKey(inputField, kInputHelperTextLengthLimit, @(length));
+}
+
+#pragma mark -
 - (void)updateFirstResponder:(NSNotification *)aNotification {
     
     [self updateButtonEnabledStateForInputField:[self getFirstResponder]];
 }
-#pragma mark -
 
 - (void)checkInputFieldInView:(UIView *)view
               withViewOriginY:(CGFloat)y
@@ -390,6 +431,127 @@ static id getAssociatedObjectForKey(UIView *view ,NSString *key) {
     
 }
 
+
+- (void)updateInputFieldText:(NSNotification *)notif{
+    [self checkInputField:notif.object];
+}
+
+#pragma mark - Validation
+
+- (void)setKeyBoardType:(UIKeyboardType) keyboardType forInputField:(UIView *)inputField{
+    if ([inputField isKindOfClass:[UITextField class]]) {
+        ((UITextField *)inputField).keyboardType = keyboardType;
+    } else if([inputField isKindOfClass:[UITextView class]]){
+        ((UITextView *)inputField).keyboardType = keyboardType;
+    } else if([inputField isKindOfClass:[UISearchBar class]]){
+        ((UISearchBar *)inputField).keyboardType = keyboardType;
+    }
+}
+
+- (NSString *)getTextForInputField:(UIView *)inputField{
+    if ([inputField isKindOfClass:[UITextField class]]) {
+        return ((UITextField *)inputField).text;
+    } else if([inputField isKindOfClass:[UITextView class]]){
+        return ((UITextView *)inputField).text;
+    } else if([inputField isKindOfClass:[UISearchBar class]]){
+        return ((UISearchBar *)inputField).text;
+    }
+    return @"";
+}
+
+- (void)setText:(NSString *)text forInputField:(UIView *)inputField{
+    if ([inputField isKindOfClass:[UITextField class]]) {
+        ((UITextField *)inputField).text = text;
+    } else if([inputField isKindOfClass:[UITextView class]]){
+        ((UITextView *)inputField).text = text;
+    } else if([inputField isKindOfClass:[UISearchBar class]]){
+        ((UISearchBar *)inputField).text = text;
+    }
+}
+
+- (void)checkText:(NSString *)text forInputField:(UIView *)inputField validation:(NSString *)validation{
+    
+    NSInteger preLength = [getAssociatedObjectForKey(inputField, kInputHelperInputFiedlTextLength) integerValue];
+    NSLog(@"current text %@ len %d,prelen %d",text,[text length],preLength);
+    
+    if (![self isTextAvailable:text forValidation:validation]) {
+        [self setText:[text substringToIndex:MAX(MAX(preLength - 1, 0), text.length -1)] forInputField:inputField];
+        setAssociatedObjectForKey(inputField, kInputHelperInputFiedlTextLength, @(preLength));
+    } else {
+        setAssociatedObjectForKey(inputField, kInputHelperInputFiedlTextLength, @(text.length));
+    }
+    
+}
+
+- (void)checkInputField:(UIView *)inputField{
+    
+    NSInteger type = [getAssociatedObjectForKey(inputField, kInputHelperValidationType) integerValue];
+    
+    //length limit
+    NSInteger limitLength = [getAssociatedObjectForKey(inputField, kInputHelperTextLengthLimit) integerValue];
+    if (limitLength) {
+        NSString *text = [self getTextForInputField:inputField];
+        if (text.length && text.length > limitLength) {
+            [self setText:[text substringToIndex:limitLength]forInputField:inputField];
+        }
+    }
+    
+    
+    NSString *text = [self getTextForInputField:inputField];
+    
+    if (text.length) {
+        
+        switch (type) {
+            case ValidationTypeNone:
+            {
+                //do nothing
+            }
+                break;
+            case ValidationTypeNoWhiteSpace:
+            {
+                [self setText:[text trimmedString] forInputField:inputField];
+            }
+                break;
+            case ValidationTypeNumberInt:
+            {
+                [self checkText:text forInputField:inputField validation:INT_NUMBER_SET];
+            }
+                break;
+            case ValidationTypeAlphabetAndNumber:
+            {
+                [self checkText:text forInputField:inputField validation:ALPHABET_NUMBER_SET];
+            }
+                break;
+            case ValidationTypePhone:
+            {
+                [self checkText:text forInputField:inputField validation:PHONE_SET];
+            }
+                break;
+            default:
+            {
+            }
+                break;
+        }
+        
+        
+    }
+}
+
+
+- (BOOL)isTextAvailable:(NSString *)text  forValidation:(NSString *)validation {
+    NSPredicate *regexPredicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",validation];
+    return [regexPredicate evaluateWithObject:text];
+}
+
 @end
 
+
+
+@implementation NSString (InputHelper)
+
+- (NSString *)trimmedString {
+    return [self stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+}
+
+@end
 

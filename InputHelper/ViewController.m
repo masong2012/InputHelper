@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "InputHelper.h"
+#import "InputHelper/InputHelper.h"
 @interface ViewController ()
 
 @end

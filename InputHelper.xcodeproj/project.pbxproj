@@ -14,7 +14,7 @@
 		044699941A028F7400C4E6F1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 044699931A028F7400C4E6F1 /* Images.xcassets */; };
 		044699971A028F7400C4E6F1 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 044699951A028F7400C4E6F1 /* LaunchScreen.xib */; };
 		044699A31A028F7400C4E6F1 /* InputHelperTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 044699A21A028F7400C4E6F1 /* InputHelperTests.m */; };
-		044699AE1A028F9200C4E6F1 /* InputHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 044699AD1A028F9200C4E6F1 /* InputHelper.m */; };
+		0459D0031A41387400F01F73 /* InputHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0459D0021A41387400F01F73 /* InputHelper.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,8 +41,8 @@
 		0446999C1A028F7400C4E6F1 /* InputHelperTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InputHelperTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		044699A11A028F7400C4E6F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		044699A21A028F7400C4E6F1 /* InputHelperTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InputHelperTests.m; sourceTree = "<group>"; };
-		044699AC1A028F9200C4E6F1 /* InputHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputHelper.h; sourceTree = "<group>"; };
-		044699AD1A028F9200C4E6F1 /* InputHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InputHelper.m; sourceTree = "<group>"; };
+		0459D0011A41387400F01F73 /* InputHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputHelper.h; sourceTree = "<group>"; };
+		0459D0021A41387400F01F73 /* InputHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InputHelper.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,7 +84,7 @@
 		044699851A028F7400C4E6F1 /* InputHelper */ = {
 			isa = PBXGroup;
 			children = (
-				044699AF1A028F9600C4E6F1 /* InputHelper */,
+				0459D0001A41387400F01F73 /* InputHelper */,
 				0446998A1A028F7400C4E6F1 /* AppDelegate.h */,
 				0446998B1A028F7400C4E6F1 /* AppDelegate.m */,
 				0446998D1A028F7400C4E6F1 /* ViewController.h */,
@@ -123,13 +123,13 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		044699AF1A028F9600C4E6F1 /* InputHelper */ = {
+		0459D0001A41387400F01F73 /* InputHelper */ = {
 			isa = PBXGroup;
 			children = (
-				044699AC1A028F9200C4E6F1 /* InputHelper.h */,
-				044699AD1A028F9200C4E6F1 /* InputHelper.m */,
+				0459D0011A41387400F01F73 /* InputHelper.h */,
+				0459D0021A41387400F01F73 /* InputHelper.m */,
 			);
-			name = InputHelper;
+			path = InputHelper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -232,7 +232,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				044699AE1A028F9200C4E6F1 /* InputHelper.m in Sources */,
+				0459D0031A41387400F01F73 /* InputHelper.m in Sources */,
 				0446998F1A028F7400C4E6F1 /* ViewController.m in Sources */,
 				0446998C1A028F7400C4E6F1 /* AppDelegate.m in Sources */,
 				044699891A028F7400C4E6F1 /* main.m in Sources */,
@@ -430,6 +430,7 @@
 				044699A81A028F7400C4E6F1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		044699A91A028F7400C4E6F1 /* Build configuration list for PBXNativeTarget "InputHelperTests" */ = {
 			isa = XCConfigurationList;
@@ -438,6 +439,7 @@
 				044699AB1A028F7400C4E6F1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

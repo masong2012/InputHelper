@@ -1,13 +1,12 @@
-//
-//  InputHelper.h
-//  InputHelper
-//
-//  Created by MaSong on 13-11-11.
-//  Copyright (c) 2013年 MaSong. All rights reserved.
-//
+/*
+ *InputHelper
+ *version 0.1.0
+ *InputHelper will support UIScrollView/UITableView And Autolayout. 
+ */
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#define IS_IOS7_OR_LATER   ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0)
 
 typedef void(^InputHelperDoneBlock)(id);
 typedef void(^InputHelperValidationError)(id,NSString*);
@@ -44,8 +43,21 @@ typedef NS_ENUM(NSInteger, ValidationType) {
 - (void)limitTextLength:(NSInteger)length forInputField:(UIView *)inputField;
 @end
 
+
+
+
+
+
+
+
 @interface NSString (InputHelper)
 - (NSString *)trimmedString ;
+/*
+ email: @"^[a-zA-Z0-9][\\w\\.-]*[a-zA-Z0-9]@[a-zA-Z0-9][\\w\\.-]*[a-zA-Z0-9]\\.[a-zA-Z][a-zA-Z\\.]*[a-zA-Z]$"
+ id card: @"^([1-9]\\d{7}((0\\d)|(1[0-2]))(([0|1|2]\\d)|3[0-1])\\d{3})|([1-9]\\d{5}[1-9]\\d{3}((0\\d)|(1[0-2]))(([0|1|2]\\d)|3[0-1])\\d{3}([0-9]|X))$"
+ phone: @"^1\\d{10}$"
+ */
+- (BOOL)isTextValidated:(NSString *)validation;
 @end
 
 #define inputHelper [InputHelper sharedInputHelper]

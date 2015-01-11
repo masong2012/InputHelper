@@ -7,15 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UIViewTest_ViewController.h"
+#import "UITableViewTest_ViewController.h"
+#import "UIScrollViewTest_ViewController.h"
+#import "ValidationTest_ViewController.h"
 
 @interface ViewController : UIViewController
-@property (weak, nonatomic) IBOutlet UITextField *nameTextField;
-@property (weak, nonatomic) IBOutlet UITextField *ageTextField;
-@property (weak, nonatomic) IBOutlet UITextField *phoneTextField;
-@property (weak, nonatomic) IBOutlet UITextField *emailTextField;
-@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
-@property (weak, nonatomic) IBOutlet UITextView *textView;
-
 
 @end
 

@@ -333,6 +333,11 @@ static id getAssociatedObjectForKey(UIView *view ,NSString *key) {
     
     CGRect frame = _currentRootView.frame;
     frame.origin.y = [getAssociatedObjectForKey(_currentRootView, kInputHelperRootViewOriginalOriginY) floatValue];
+    
+    /*
+      There may be some bugs....
+      frame.origin.y = IS_IOS7_OR_LATER ? 64.0f : 0;
+     */
     [UIView animateWithDuration:0.3f animations:^{
         _currentRootView.frame = frame;
     }];
@@ -429,6 +434,7 @@ static id getAssociatedObjectForKey(UIView *view ,NSString *key) {
         }
     }
     
+    [self dismissInputHelper];
 }
 
 
@@ -553,5 +559,9 @@ static id getAssociatedObjectForKey(UIView *view ,NSString *key) {
     return [self stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
 }
 
+- (BOOL)isTextValidated:(NSString *)validation{
+    NSPredicate *regexPredicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",validation];
+    return [regexPredicate evaluateWithObject:self];
+}
 @end
 

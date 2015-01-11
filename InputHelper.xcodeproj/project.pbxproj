@@ -7,14 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04246D2B1A5D90CD005AD629 /* input_box_600x80.png in Resources */ = {isa = PBXBuildFile; fileRef = 04246D291A5D90CD005AD629 /* input_box_600x80.png */; };
+		04246D2C1A5D90CD005AD629 /* input_box_602x203.png in Resources */ = {isa = PBXBuildFile; fileRef = 04246D2A1A5D90CD005AD629 /* input_box_602x203.png */; };
+		04246D2E1A5D91D5005AD629 /* btn_bg_round_green_290x80.png in Resources */ = {isa = PBXBuildFile; fileRef = 04246D2D1A5D91D5005AD629 /* btn_bg_round_green_290x80.png */; };
+		04246D331A5D9601005AD629 /* UIViewTest_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04246D311A5D9601005AD629 /* UIViewTest_ViewController.m */; };
+		04246D341A5D9601005AD629 /* UIViewTest_ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04246D321A5D9601005AD629 /* UIViewTest_ViewController.xib */; };
+		04246D381A5D9627005AD629 /* UIScrollViewTest_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04246D361A5D9627005AD629 /* UIScrollViewTest_ViewController.m */; };
+		04246D391A5D9627005AD629 /* UIScrollViewTest_ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04246D371A5D9627005AD629 /* UIScrollViewTest_ViewController.xib */; };
+		04246D3D1A5D963B005AD629 /* UITableViewTest_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04246D3B1A5D963B005AD629 /* UITableViewTest_ViewController.m */; };
+		04246D3E1A5D963B005AD629 /* UITableViewTest_ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04246D3C1A5D963B005AD629 /* UITableViewTest_ViewController.xib */; };
+		04246D421A5D9659005AD629 /* ValidationTest_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04246D401A5D9659005AD629 /* ValidationTest_ViewController.m */; };
+		04246D431A5D9659005AD629 /* ValidationTest_ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04246D411A5D9659005AD629 /* ValidationTest_ViewController.xib */; };
+		04246D451A5D985F005AD629 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04246D441A5D985F005AD629 /* ViewController.xib */; };
 		044699891A028F7400C4E6F1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 044699881A028F7400C4E6F1 /* main.m */; };
 		0446998C1A028F7400C4E6F1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0446998B1A028F7400C4E6F1 /* AppDelegate.m */; };
 		0446998F1A028F7400C4E6F1 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0446998E1A028F7400C4E6F1 /* ViewController.m */; };
-		044699921A028F7400C4E6F1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 044699901A028F7400C4E6F1 /* Main.storyboard */; };
 		044699941A028F7400C4E6F1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 044699931A028F7400C4E6F1 /* Images.xcassets */; };
 		044699971A028F7400C4E6F1 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 044699951A028F7400C4E6F1 /* LaunchScreen.xib */; };
 		044699A31A028F7400C4E6F1 /* InputHelperTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 044699A21A028F7400C4E6F1 /* InputHelperTests.m */; };
 		0459D0031A41387400F01F73 /* InputHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0459D0021A41387400F01F73 /* InputHelper.m */; };
+		048759B11A62BD350065FD2E /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 048759B01A62BD350065FD2E /* BaseViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,6 +40,22 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		04246D291A5D90CD005AD629 /* input_box_600x80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = input_box_600x80.png; sourceTree = "<group>"; };
+		04246D2A1A5D90CD005AD629 /* input_box_602x203.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = input_box_602x203.png; sourceTree = "<group>"; };
+		04246D2D1A5D91D5005AD629 /* btn_bg_round_green_290x80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_bg_round_green_290x80.png; sourceTree = "<group>"; };
+		04246D301A5D9601005AD629 /* UIViewTest_ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UIViewTest_ViewController.h; path = TestControllers/UIViewTest_ViewController.h; sourceTree = "<group>"; };
+		04246D311A5D9601005AD629 /* UIViewTest_ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UIViewTest_ViewController.m; path = TestControllers/UIViewTest_ViewController.m; sourceTree = "<group>"; };
+		04246D321A5D9601005AD629 /* UIViewTest_ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UIViewTest_ViewController.xib; path = TestControllers/UIViewTest_ViewController.xib; sourceTree = "<group>"; };
+		04246D351A5D9627005AD629 /* UIScrollViewTest_ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UIScrollViewTest_ViewController.h; path = TestControllers/UIScrollViewTest_ViewController.h; sourceTree = "<group>"; };
+		04246D361A5D9627005AD629 /* UIScrollViewTest_ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UIScrollViewTest_ViewController.m; path = TestControllers/UIScrollViewTest_ViewController.m; sourceTree = "<group>"; };
+		04246D371A5D9627005AD629 /* UIScrollViewTest_ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UIScrollViewTest_ViewController.xib; path = TestControllers/UIScrollViewTest_ViewController.xib; sourceTree = "<group>"; };
+		04246D3A1A5D963B005AD629 /* UITableViewTest_ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UITableViewTest_ViewController.h; path = TestControllers/UITableViewTest_ViewController.h; sourceTree = "<group>"; };
+		04246D3B1A5D963B005AD629 /* UITableViewTest_ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UITableViewTest_ViewController.m; path = TestControllers/UITableViewTest_ViewController.m; sourceTree = "<group>"; };
+		04246D3C1A5D963B005AD629 /* UITableViewTest_ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UITableViewTest_ViewController.xib; path = TestControllers/UITableViewTest_ViewController.xib; sourceTree = "<group>"; };
+		04246D3F1A5D9659005AD629 /* ValidationTest_ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ValidationTest_ViewController.h; path = TestControllers/ValidationTest_ViewController.h; sourceTree = "<group>"; };
+		04246D401A5D9659005AD629 /* ValidationTest_ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ValidationTest_ViewController.m; path = TestControllers/ValidationTest_ViewController.m; sourceTree = "<group>"; };
+		04246D411A5D9659005AD629 /* ValidationTest_ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ValidationTest_ViewController.xib; path = TestControllers/ValidationTest_ViewController.xib; sourceTree = "<group>"; };
+		04246D441A5D985F005AD629 /* ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
 		044699831A028F7400C4E6F1 /* InputHelper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InputHelper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		044699871A028F7400C4E6F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		044699881A028F7400C4E6F1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -35,7 +63,6 @@
 		0446998B1A028F7400C4E6F1 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		0446998D1A028F7400C4E6F1 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		0446998E1A028F7400C4E6F1 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		044699911A028F7400C4E6F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		044699931A028F7400C4E6F1 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		044699961A028F7400C4E6F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		0446999C1A028F7400C4E6F1 /* InputHelperTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InputHelperTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -43,6 +70,8 @@
 		044699A21A028F7400C4E6F1 /* InputHelperTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InputHelperTests.m; sourceTree = "<group>"; };
 		0459D0011A41387400F01F73 /* InputHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputHelper.h; sourceTree = "<group>"; };
 		0459D0021A41387400F01F73 /* InputHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InputHelper.m; sourceTree = "<group>"; };
+		048759AF1A62BD350065FD2E /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseViewController.h; path = TestControllers/BaseViewController.h; sourceTree = "<group>"; };
+		048759B01A62BD350065FD2E /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BaseViewController.m; path = TestControllers/BaseViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +92,37 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		04246D281A5D90CD005AD629 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				04246D2D1A5D91D5005AD629 /* btn_bg_round_green_290x80.png */,
+				04246D291A5D90CD005AD629 /* input_box_600x80.png */,
+				04246D2A1A5D90CD005AD629 /* input_box_602x203.png */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		04246D2F1A5D95AA005AD629 /* TestControllers */ = {
+			isa = PBXGroup;
+			children = (
+				04246D301A5D9601005AD629 /* UIViewTest_ViewController.h */,
+				04246D311A5D9601005AD629 /* UIViewTest_ViewController.m */,
+				04246D321A5D9601005AD629 /* UIViewTest_ViewController.xib */,
+				04246D351A5D9627005AD629 /* UIScrollViewTest_ViewController.h */,
+				04246D361A5D9627005AD629 /* UIScrollViewTest_ViewController.m */,
+				04246D371A5D9627005AD629 /* UIScrollViewTest_ViewController.xib */,
+				04246D3A1A5D963B005AD629 /* UITableViewTest_ViewController.h */,
+				04246D3B1A5D963B005AD629 /* UITableViewTest_ViewController.m */,
+				04246D3C1A5D963B005AD629 /* UITableViewTest_ViewController.xib */,
+				04246D3F1A5D9659005AD629 /* ValidationTest_ViewController.h */,
+				04246D401A5D9659005AD629 /* ValidationTest_ViewController.m */,
+				04246D411A5D9659005AD629 /* ValidationTest_ViewController.xib */,
+				048759AF1A62BD350065FD2E /* BaseViewController.h */,
+				048759B01A62BD350065FD2E /* BaseViewController.m */,
+			);
+			name = TestControllers;
+			sourceTree = "<group>";
+		};
 		0446997A1A028F7400C4E6F1 = {
 			isa = PBXGroup;
 			children = (
@@ -84,12 +144,14 @@
 		044699851A028F7400C4E6F1 /* InputHelper */ = {
 			isa = PBXGroup;
 			children = (
+				04246D2F1A5D95AA005AD629 /* TestControllers */,
+				04246D281A5D90CD005AD629 /* Images */,
 				0459D0001A41387400F01F73 /* InputHelper */,
 				0446998A1A028F7400C4E6F1 /* AppDelegate.h */,
 				0446998B1A028F7400C4E6F1 /* AppDelegate.m */,
 				0446998D1A028F7400C4E6F1 /* ViewController.h */,
 				0446998E1A028F7400C4E6F1 /* ViewController.m */,
-				044699901A028F7400C4E6F1 /* Main.storyboard */,
+				04246D441A5D985F005AD629 /* ViewController.xib */,
 				044699931A028F7400C4E6F1 /* Images.xcassets */,
 				044699951A028F7400C4E6F1 /* LaunchScreen.xib */,
 				044699861A028F7400C4E6F1 /* Supporting Files */,
@@ -212,9 +274,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				044699921A028F7400C4E6F1 /* Main.storyboard in Resources */,
+				04246D451A5D985F005AD629 /* ViewController.xib in Resources */,
+				04246D2B1A5D90CD005AD629 /* input_box_600x80.png in Resources */,
+				04246D341A5D9601005AD629 /* UIViewTest_ViewController.xib in Resources */,
+				04246D391A5D9627005AD629 /* UIScrollViewTest_ViewController.xib in Resources */,
+				04246D431A5D9659005AD629 /* ValidationTest_ViewController.xib in Resources */,
+				04246D2C1A5D90CD005AD629 /* input_box_602x203.png in Resources */,
 				044699971A028F7400C4E6F1 /* LaunchScreen.xib in Resources */,
+				04246D3E1A5D963B005AD629 /* UITableViewTest_ViewController.xib in Resources */,
 				044699941A028F7400C4E6F1 /* Images.xcassets in Resources */,
+				04246D2E1A5D91D5005AD629 /* btn_bg_round_green_290x80.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -233,9 +302,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				0459D0031A41387400F01F73 /* InputHelper.m in Sources */,
+				048759B11A62BD350065FD2E /* BaseViewController.m in Sources */,
+				04246D3D1A5D963B005AD629 /* UITableViewTest_ViewController.m in Sources */,
 				0446998F1A028F7400C4E6F1 /* ViewController.m in Sources */,
+				04246D421A5D9659005AD629 /* ValidationTest_ViewController.m in Sources */,
 				0446998C1A028F7400C4E6F1 /* AppDelegate.m in Sources */,
 				044699891A028F7400C4E6F1 /* main.m in Sources */,
+				04246D381A5D9627005AD629 /* UIScrollViewTest_ViewController.m in Sources */,
+				04246D331A5D9601005AD629 /* UIViewTest_ViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,14 +332,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		044699901A028F7400C4E6F1 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				044699911A028F7400C4E6F1 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		044699951A028F7400C4E6F1 /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (

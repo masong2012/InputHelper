@@ -16,29 +16,25 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     if ([self respondsToSelector:@selector(setEdgesForExtendedLayout:)]){
         self.edgesForExtendedLayout = UIRectEdgeNone;
     }
     
-    //keyboard
-    [inputHelper setupInputHelperForView:self.view withDismissType:InputHelperDismissTypeTapGusture doneBlock:^(id res){
-        NSLog(@"done block,you can do something...");
-    }];
-   
-   
-    //validation
-    [inputHelper setupValidationType:ValidationTypeNoWhiteSpace forInputField:_nameTextField];
-    
-    [inputHelper setupValidationType:ValidationTypeNumberInt forInputField:_ageTextField];
-    
-    [inputHelper setupValidationType:ValidationTypePhone forInputField:_phoneTextField];
-    
-    [inputHelper setupValidationType:ValidationTypeAlphabetAndNumber forInputField:_emailTextField];
-    
-    [inputHelper limitTextLength:10 forInputField:_textView];
-    
+    self.title = @"InputHelper Test";
 }
-
+- (IBAction)testUIViewAction:(id)sender {
+    [self.navigationController pushViewController:[[UIViewTest_ViewController alloc]initWithNibName:@"UIViewTest_ViewController" bundle:nil] animated:YES];
+}
+- (IBAction)testUIScrollViewAction:(id)sender {
+    [self.navigationController pushViewController:[[UIScrollViewTest_ViewController alloc]initWithNibName:@"UIScrollViewTest_ViewController" bundle:nil] animated:YES];
+}
+- (IBAction)testUITableViewAction:(id)sender {
+    [self.navigationController pushViewController:[[UITableViewTest_ViewController alloc]initWithNibName:@"UITableViewTest_ViewController" bundle:nil] animated:YES];
+}
+- (IBAction)testValidationAction:(id)sender {
+    [self.navigationController pushViewController:[[ValidationTest_ViewController alloc]initWithNibName:@"ValidationTest_ViewController" bundle:nil] animated:YES];
+}
 
 
 @end

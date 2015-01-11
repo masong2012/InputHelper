@@ -9,6 +9,9 @@
 #import "UIViewTest_ViewController.h"
 
 @interface UIViewTest_ViewController ()
+@property (weak, nonatomic) IBOutlet UITextField *ageTextField;
+@property (weak, nonatomic) IBOutlet UITextField *nameTextField;
+@property (weak, nonatomic) IBOutlet UITextView *textView;
 
 @end
 
@@ -17,6 +20,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [inputHelper setupInputHelperForView:self.view withDismissType:InputHelperDismissTypeTapGusture];
+    
+    
+    [inputHelper setupValidationType:ValidationTypeNumberInt forInputField:_ageTextField];
+    
+    [inputHelper limitTextLength:20 forInputField:_textView];
 }
 
 

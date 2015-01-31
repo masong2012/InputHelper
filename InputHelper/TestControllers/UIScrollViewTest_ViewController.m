@@ -9,6 +9,7 @@
 #import "UIScrollViewTest_ViewController.h"
 
 @interface UIScrollViewTest_ViewController ()
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
 @end
 

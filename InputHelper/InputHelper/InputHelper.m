@@ -15,6 +15,7 @@ static NSString *kInputHelperDismissType= @"kInputHelperDismissType";
 static NSInteger tapTag = 2014;
 
 static NSString *kInputHelperRootViewOriginalOriginY = @"kInputHelperRootViewOriginalOriginY";
+static NSString *kInputHelperRootViewOriginalOriginH = @"kInputHelperRootViewOriginalOriginH";
 static NSString *kInputHelperRootViewAllInputFieldOriginYDictionary = @"kInputHelperRootViewAllInputFieldOriginYDictionary";
 static NSString *kInputHelperRootViewSortedInputFieldArray = @"kInputHelperRootViewSortedInputFieldArray";
 
@@ -25,17 +26,21 @@ static NSString *kInputHelperInputFiedlTextLength = @"kInputHelperInputFiedlText
 static NSString *kInputHelperTextLengthLimit = @"kInputHelperTextLengthLimit";
 
 static void setAssociatedObjectForKey(UIView *view ,NSString *key,id value){
-    objc_setAssociatedObject(view, (__bridge  const void *)(key), value, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    if (view) {
+        objc_setAssociatedObject(view, (__bridge  const void *)(key), value, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    }
 }
 
 static id getAssociatedObjectForKey(UIView *view ,NSString *key) {
-   return  objc_getAssociatedObject(view, (__bridge  const void *)(key));
+    return  view ? objc_getAssociatedObject(view, (__bridge  const void *)(key)) : nil;
 }
 
 
 #define INT_NUMBER_SET  @"^\\d*$"
 #define PHONE_SET   @"^1{1,}\\d*$"
 #define ALPHABET_NUMBER_SET @"^[0-9A-Za-z@_.\\-]+$"
+
+#define INPUT_HELPER_MAX_H [UIScreen mainScreen].bounds.size.height
 
 @interface InputHelperTapGusture: UITapGestureRecognizer
 @property (assign, nonatomic) NSInteger tag;
@@ -68,7 +73,6 @@ static id getAssociatedObjectForKey(UIView *view ,NSString *key) {
 @implementation InputHelper
 
 - (UIToolbar *)createInputHelperToolBar{
-    
     UIToolbar *toolBar = [[UIToolbar alloc]initWithFrame:_defaultToolBarFrame];
     toolBar.barStyle = UIBarStyleBlackTranslucent;
     UIBarButtonItem *btnPrevious = [[UIBarButtonItem alloc]initWithTitle:@"上一项" style:UIBarButtonItemStyleDone target:self action:@selector(didClickButtonPrevious)];
@@ -144,23 +148,38 @@ static id getAssociatedObjectForKey(UIView *view ,NSString *key) {
 #pragma mark - APIs
 - (void)setupInputHelperForView:(UIView *)view withDismissType:(InputHelperDismissType)dismissType doneBlock:(InputHelperDoneBlock)doneBlock{
     
-    self.currentRootView = view;
     
-    setAssociatedObjectForKey(view, kInputHelperDismissType, @(dismissType));
+    if ([view isKindOfClass:[UIScrollView class]]) {
+    
+        self.currentRootView = view;
+        
+    } else {
+        UIScrollView *scrollView = [[UIScrollView alloc]initWithFrame:view.bounds];
+        scrollView.contentSize = view.frame.size;
+        for(UIView *v in view.subviews){
+            [scrollView addSubview:v];
+        }
+        [view insertSubview:scrollView atIndex:0];
+        self.currentRootView = scrollView;
+    }
+    
+   
+    setAssociatedObjectForKey(_currentRootView, kInputHelperRootViewOriginalOriginH, @(_currentRootView.frame.size.height));
+    setAssociatedObjectForKey(_currentRootView, kInputHelperDismissType, @(dismissType));
     
     NSMutableDictionary *dic= [NSMutableDictionary new];
-    setAssociatedObjectForKey(view, kInputHelperRootViewAllInputFieldOriginYDictionary, dic);
+    setAssociatedObjectForKey(_currentRootView, kInputHelperRootViewAllInputFieldOriginYDictionary, dic);
     
     NSMutableArray *array = [NSMutableArray new];
-    setAssociatedObjectForKey(view, kInputHelperRootViewSortedInputFieldArray, array);
+    setAssociatedObjectForKey(_currentRootView, kInputHelperRootViewSortedInputFieldArray, array);
     
-    objc_setAssociatedObject(view, (__bridge  const void *)(kInputHelperDoneBlock), doneBlock, OBJC_ASSOCIATION_COPY_NONATOMIC);
+    objc_setAssociatedObject(_currentRootView, (__bridge  const void *)(kInputHelperDoneBlock), doneBlock, OBJC_ASSOCIATION_COPY_NONATOMIC);
     
-    [self checkInputFieldInView:view withViewOriginY:view.frame.origin.y];
+    [self checkInputFieldInView:_currentRootView withViewOriginY:_currentRootView.frame.origin.y];
     
     
     
-    NSArray *keys = [getAssociatedObjectForKey(view, kInputHelperRootViewAllInputFieldOriginYDictionary) allKeys];
+    NSArray *keys = [getAssociatedObjectForKey(_currentRootView, kInputHelperRootViewAllInputFieldOriginYDictionary) allKeys];
     if (keys.count == 0) {
         return;
     }
@@ -189,14 +208,14 @@ static id getAssociatedObjectForKey(UIView *view ,NSString *key) {
         
     } else if (dismissType == InputHelperDismissTypeTapGusture){
         
-        setAssociatedObjectForKey(view, kInputHelperTapGusture, kInputHelperTapGusture);
+        setAssociatedObjectForKey(_currentRootView, kInputHelperTapGusture, kInputHelperTapGusture);
     }
     
     for (NSNumber *key in sortedOriginYArray){
         
-        UIView *inputField = [getAssociatedObjectForKey(view, kInputHelperRootViewAllInputFieldOriginYDictionary) objectForKey:key];
+        UIView *inputField = [getAssociatedObjectForKey(_currentRootView, kInputHelperRootViewAllInputFieldOriginYDictionary) objectForKey:key];
         
-        [getAssociatedObjectForKey(view, kInputHelperRootViewSortedInputFieldArray) addObject:inputField];
+        [getAssociatedObjectForKey(_currentRootView, kInputHelperRootViewSortedInputFieldArray) addObject:inputField];
         
         if ([inputField isKindOfClass:[UITextField class]]) {
             
@@ -396,6 +415,14 @@ static id getAssociatedObjectForKey(UIView *view ,NSString *key) {
 - (void) keyboardWillShow:(NSNotification *) notif
 {
 
+    CGFloat keyboardH = [notif.userInfo[UIKeyboardFrameBeginUserInfoKey] CGRectValue].size.height;
+    CGFloat originY = [getAssociatedObjectForKey(_currentRootView, kInputHelperRootViewOriginalOriginY) floatValue];
+    
+    CGRect frame = _currentRootView.frame;
+    frame.size.height = INPUT_HELPER_MAX_H - originY - keyboardH;
+    ((UIScrollView *)_currentRootView).frame = frame;
+    
+    
     if (getAssociatedObjectForKey(_currentRootView, kInputHelperRootViewOriginalOriginY) == nil) {
         setAssociatedObjectForKey(_currentRootView, kInputHelperRootViewOriginalOriginY, @(_currentRootView.frame.origin.y));
     }
@@ -422,6 +449,11 @@ static id getAssociatedObjectForKey(UIView *view ,NSString *key) {
 
 - (void) keyboardWillHide:(NSNotification *) notif
 {
+    CGFloat originH = [getAssociatedObjectForKey(_currentRootView, kInputHelperRootViewOriginalOriginH) floatValue];
+    
+    CGRect frame = _currentRootView.frame;
+    frame.size.height = originH;
+    ((UIScrollView *)_currentRootView).frame = frame;
     
     NSString *str = getAssociatedObjectForKey(_currentRootView, kInputHelperTapGusture);
     

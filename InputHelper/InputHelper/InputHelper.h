@@ -1,7 +1,15 @@
 /*
  *InputHelper
- *version 0.1.0
- *InputHelper will support UIScrollView/UITableView And Autolayout. 
+ *version 0.1.1
+ 
+ *thank mario.
+ 
+ *NOTE:   !!(0_0)!!
+ InputHelper NOT support Autolayout Now!!
+ 
+ *InputHelper WILL support UITableView and Autolayout. (-_-)
+ 
+ 2015-01-31
  */
 
 #import <Foundation/Foundation.h>

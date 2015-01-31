@@ -1,18 +1,20 @@
 InputHelper
 ===========
-#HOT TO USE ? 
+#NOTE: InputHelper Not Support UITableView And Autolayout Now.
+===========
+#How to use ? 
 
 ***
 *[inputHelper setupInputHelperForView:view withDismissType:InputHelperDismissTypeNone];*
->KeyBoard will hide when you click the doen button
+>Keyboard will hide when you click the done button
 
 #OR
 *[inputHelper setupInputHelperForView:view withDismissType:InputHelperDismissTypeCleanMaskView];*
->KeyBoard will hide when you Touch outside of the KeyBoard
+>Keyboard will hide when you Touch outside of the Keyboard
 
 #OR
 *[inputHelper setupInputHelperForView:view withDismissType:InputHelperDismissTypeTapGusture];*
->KeyBoard will hide when you Touch the view
+>Keyboard will hide when you Touch the view
 ***
 
 AND YOU CAN USER THOSE METHODS FOR A CONTROLLER,JUST USE controller.view .

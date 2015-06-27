@@ -419,7 +419,7 @@ static id getAssociatedObjectForKey(UIView *view ,NSString *key) {
     CGFloat originY = [getAssociatedObjectForKey(_currentRootView, kInputHelperRootViewOriginalOriginY) floatValue];
     
     CGRect frame = _currentRootView.frame;
-    frame.size.height = INPUT_HELPER_MAX_H - originY - keyboardH;
+    frame.size.height = INPUT_HELPER_MAX_H - originY - keyboardH - 40;
     ((UIScrollView *)_currentRootView).frame = frame;
     
     

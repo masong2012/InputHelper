@@ -29,12 +29,6 @@
 - (IBAction)testUIScrollViewAction:(id)sender {
     [self.navigationController pushViewController:[[UIScrollViewTest_ViewController alloc]initWithNibName:@"UIScrollViewTest_ViewController" bundle:nil] animated:YES];
 }
-- (IBAction)testUITableViewAction:(id)sender {
-    [self.navigationController pushViewController:[[UITableViewTest_ViewController alloc]initWithNibName:@"UITableViewTest_ViewController" bundle:nil] animated:YES];
-}
-- (IBAction)testValidationAction:(id)sender {
-    [self.navigationController pushViewController:[[ValidationTest_ViewController alloc]initWithNibName:@"ValidationTest_ViewController" bundle:nil] animated:YES];
-}
 
 
 @end

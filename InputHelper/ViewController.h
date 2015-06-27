@@ -8,9 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "UIViewTest_ViewController.h"
-#import "UITableViewTest_ViewController.h"
 #import "UIScrollViewTest_ViewController.h"
-#import "ValidationTest_ViewController.h"
 
 @interface ViewController : UIViewController
 

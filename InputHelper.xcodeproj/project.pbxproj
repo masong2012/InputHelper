@@ -14,10 +14,6 @@
 		04246D341A5D9601005AD629 /* UIViewTest_ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04246D321A5D9601005AD629 /* UIViewTest_ViewController.xib */; };
 		04246D381A5D9627005AD629 /* UIScrollViewTest_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04246D361A5D9627005AD629 /* UIScrollViewTest_ViewController.m */; };
 		04246D391A5D9627005AD629 /* UIScrollViewTest_ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04246D371A5D9627005AD629 /* UIScrollViewTest_ViewController.xib */; };
-		04246D3D1A5D963B005AD629 /* UITableViewTest_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04246D3B1A5D963B005AD629 /* UITableViewTest_ViewController.m */; };
-		04246D3E1A5D963B005AD629 /* UITableViewTest_ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04246D3C1A5D963B005AD629 /* UITableViewTest_ViewController.xib */; };
-		04246D421A5D9659005AD629 /* ValidationTest_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04246D401A5D9659005AD629 /* ValidationTest_ViewController.m */; };
-		04246D431A5D9659005AD629 /* ValidationTest_ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04246D411A5D9659005AD629 /* ValidationTest_ViewController.xib */; };
 		04246D451A5D985F005AD629 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04246D441A5D985F005AD629 /* ViewController.xib */; };
 		044699891A028F7400C4E6F1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 044699881A028F7400C4E6F1 /* main.m */; };
 		0446998C1A028F7400C4E6F1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0446998B1A028F7400C4E6F1 /* AppDelegate.m */; };
@@ -49,12 +45,6 @@
 		04246D351A5D9627005AD629 /* UIScrollViewTest_ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UIScrollViewTest_ViewController.h; path = TestControllers/UIScrollViewTest_ViewController.h; sourceTree = "<group>"; };
 		04246D361A5D9627005AD629 /* UIScrollViewTest_ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UIScrollViewTest_ViewController.m; path = TestControllers/UIScrollViewTest_ViewController.m; sourceTree = "<group>"; };
 		04246D371A5D9627005AD629 /* UIScrollViewTest_ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UIScrollViewTest_ViewController.xib; path = TestControllers/UIScrollViewTest_ViewController.xib; sourceTree = "<group>"; };
-		04246D3A1A5D963B005AD629 /* UITableViewTest_ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UITableViewTest_ViewController.h; path = TestControllers/UITableViewTest_ViewController.h; sourceTree = "<group>"; };
-		04246D3B1A5D963B005AD629 /* UITableViewTest_ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UITableViewTest_ViewController.m; path = TestControllers/UITableViewTest_ViewController.m; sourceTree = "<group>"; };
-		04246D3C1A5D963B005AD629 /* UITableViewTest_ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UITableViewTest_ViewController.xib; path = TestControllers/UITableViewTest_ViewController.xib; sourceTree = "<group>"; };
-		04246D3F1A5D9659005AD629 /* ValidationTest_ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ValidationTest_ViewController.h; path = TestControllers/ValidationTest_ViewController.h; sourceTree = "<group>"; };
-		04246D401A5D9659005AD629 /* ValidationTest_ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ValidationTest_ViewController.m; path = TestControllers/ValidationTest_ViewController.m; sourceTree = "<group>"; };
-		04246D411A5D9659005AD629 /* ValidationTest_ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ValidationTest_ViewController.xib; path = TestControllers/ValidationTest_ViewController.xib; sourceTree = "<group>"; };
 		04246D441A5D985F005AD629 /* ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
 		044699831A028F7400C4E6F1 /* InputHelper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InputHelper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		044699871A028F7400C4E6F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -111,12 +101,6 @@
 				04246D351A5D9627005AD629 /* UIScrollViewTest_ViewController.h */,
 				04246D361A5D9627005AD629 /* UIScrollViewTest_ViewController.m */,
 				04246D371A5D9627005AD629 /* UIScrollViewTest_ViewController.xib */,
-				04246D3A1A5D963B005AD629 /* UITableViewTest_ViewController.h */,
-				04246D3B1A5D963B005AD629 /* UITableViewTest_ViewController.m */,
-				04246D3C1A5D963B005AD629 /* UITableViewTest_ViewController.xib */,
-				04246D3F1A5D9659005AD629 /* ValidationTest_ViewController.h */,
-				04246D401A5D9659005AD629 /* ValidationTest_ViewController.m */,
-				04246D411A5D9659005AD629 /* ValidationTest_ViewController.xib */,
 				048759AF1A62BD350065FD2E /* BaseViewController.h */,
 				048759B01A62BD350065FD2E /* BaseViewController.m */,
 			);
@@ -278,10 +262,8 @@
 				04246D2B1A5D90CD005AD629 /* input_box_600x80.png in Resources */,
 				04246D341A5D9601005AD629 /* UIViewTest_ViewController.xib in Resources */,
 				04246D391A5D9627005AD629 /* UIScrollViewTest_ViewController.xib in Resources */,
-				04246D431A5D9659005AD629 /* ValidationTest_ViewController.xib in Resources */,
 				04246D2C1A5D90CD005AD629 /* input_box_602x203.png in Resources */,
 				044699971A028F7400C4E6F1 /* LaunchScreen.xib in Resources */,
-				04246D3E1A5D963B005AD629 /* UITableViewTest_ViewController.xib in Resources */,
 				044699941A028F7400C4E6F1 /* Images.xcassets in Resources */,
 				04246D2E1A5D91D5005AD629 /* btn_bg_round_green_290x80.png in Resources */,
 			);
@@ -303,9 +285,7 @@
 			files = (
 				0459D0031A41387400F01F73 /* InputHelper.m in Sources */,
 				048759B11A62BD350065FD2E /* BaseViewController.m in Sources */,
-				04246D3D1A5D963B005AD629 /* UITableViewTest_ViewController.m in Sources */,
 				0446998F1A028F7400C4E6F1 /* ViewController.m in Sources */,
-				04246D421A5D9659005AD629 /* ValidationTest_ViewController.m in Sources */,
 				0446998C1A028F7400C4E6F1 /* AppDelegate.m in Sources */,
 				044699891A028F7400C4E6F1 /* main.m in Sources */,
 				04246D381A5D9627005AD629 /* UIScrollViewTest_ViewController.m in Sources */,
